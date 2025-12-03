@@ -101,6 +101,7 @@
       discord
       gh
       papirus-icon-theme
+      gnome-keyring
     ];
   };
 
