@@ -102,6 +102,7 @@
       gh
       papirus-icon-theme
       gnome-keyring
+      steam
     ];
   };
 
