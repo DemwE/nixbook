@@ -11,6 +11,7 @@
       ./hardware-configuration.nix
       ./home-config.nix
       ./paths.nix
+      ./pkgs.nix
     ];
 
   # Bootloader.
@@ -91,45 +92,13 @@
     isNormalUser = true;
     description = "DemwE";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    	vscode
-    	brave
-      jetbrains.webstorm
-      jetbrains.pycharm-professional
-      jetbrains.clion
-      file-roller
-      discord
-      gh
-      papirus-icon-theme
-      gnome-keyring
-      steam
-      warp-terminal
-    ];
   };
 
   # Allow unfree packages
+  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-  	neovim
-  	zsh
-  	bat
-  	duf
-  	fastfetch
-    btop
-    git
-    yazi
-    wget
-    tree
-    ffmpeg-full
-  ];
-
-  # Fonts
-  fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono noto-fonts ];
-
-  # Shell
+  # Shells.zsh.enable = true;
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
@@ -138,8 +107,6 @@
     enable = true;
     enable32Bit = true;
   };
-
-  # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
   # programs.gnupg.agent = {
@@ -155,6 +122,8 @@
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 8000 3000 ];
+  networking.firewall.allowedUDPPorts = [ 8000 3000 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
