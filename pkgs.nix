@@ -19,6 +19,8 @@
     pnpm
     nodejs_24
     unityhub
+    prismlauncher
+    marktext
   ];
 
   # System packages
